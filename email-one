@@ -1,0 +1,25 @@
+Hi Inbok,
+
+I hope you had a nice break, and are getting settled into the quarter nicely.
+
+If you have a chance, I wanted to ask [1] if you had another task available and [2] if you wanted to set up a meeting time for this quarter.
+
+I also wanted to give you a status update on my research project and hear your thoughts on the updated research question / puzzle, which is as follows:
+
+>Despite the North Korean regime's commitment to becoming a nuclear power, China has continuously pursued denuclearisation of the Korean peninsula. In this paper, I will investigate how China has balanced its relationship with the DPRK and its interest in denuclearisation, and I will evaluate the stability of this balancing strategy.
+
+The main puzzle is that China has kept diplomatic relations with the DPRK despite challenging one of the regime's fundamental interests.
+
+As a review, the main evidence I am planning to use in my paper is:
+
+* UN Security Council speeches. I will argue that these reflect China's stated preference (or non-preference) for denuclearisation. I have imported this data into R, created quanteda objects from it, and done some preliminary analysis. My next steps are to clean the data a bit (removing filler words, creating compound tokens for phrases like DPRK and THAAD), find the keywords and their synonyms that are most relevant to my project, and then doing sentiment analysis of the text around those keywords.
+
+* China's trade patterns. I would like to use China's trade with North Korea as the DV in a revealed preference model. The trade between the two countries does not amount to a particularly significant portion of China's total trade, and I will argue that China uses the trade according to its broader security goals regarding North Korea. I would also like to investigate how China's trade with other East Asian economies affects its desire for denuclearisation and stability on the peninsula, but this is secondary to my main independent variable below. I had trouble importing the trade data from this website, but am investigating how to covert the TSV file into a SQLite database so I don't have to load it all into memory.
+
+* North Korean provocation events, the primary IV. I haven't investigated this data yet but doing so is included in my near-term priorities.
+
+Hopefully that all makes sense, would appreciate your thoughts or tips.
+
+Regards,
+--
+Cameron Norman
