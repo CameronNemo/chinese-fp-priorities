@@ -126,7 +126,15 @@ interests_intexts %<>% mutate(word_count = str_count(meet_corpus[[docname, "text
                               speaker = meet_corpus[[docname, "speaker"]],
                               topic = meet_corpus[[docname, "topic"]])
 
-interests_intexts %>% filter(date > "2014-01-01") %>% ggplot(aes(x=date, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.0008) + geom_smooth(method=glm, se=F)
+interests_intexts %>%
+  filter(date > "2014-01-01") %>%
+  ggplot(aes(x=date, y=n/word_count, color=keyword)) +
+  geom_jitter(alpha=0.67, size=4, width=0, height=0.0008) +
+  geom_smooth(method=glm, se=F) +
+  ggtitle("Interests in China's UNSC Speeches") +
+  ylab("Relative Frequency") + xlab("Year")
+
+ggsave("output/china_unsc_interests.svg", device="svg")
 
 # visualise the raw data
 interests_intexts %>% ggplot(aes(x=as.factor(docname), y=n, fill=keyword)) + geom_col(position="fill")
