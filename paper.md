@@ -14,7 +14,7 @@ By revealing how China has balanced its goals in the presence of varying provoca
 
 ​	This research provides two important contributions that can be extended to situations and topics not directly related to tensions on the Korean peninsula. First, we can detail how China sees its role in the situation, for example as a leader, mediator, or stakeholder. In addition, this paper can help predict how China may behave in similar situations in the future, and the factors that determine the state's behavior.
 
-##Literature Review and Theory
+## Literature Review and Theory
 
 ​	While there are theoretical perspectives and events that support both sides of the economic interdependence dichotomy, the evidence that it is a dominant foreign policy priority is increasingly better at explaining Chinese relationships relevant to the Korea peninsula. Despite China's current and past attempts to use economic leverage to achieve its foreign policy priorities, I believe that economic interdependence acts primarily as an incentive for mutualistic relationships.
 
@@ -54,14 +54,17 @@ denuclearisation
 - priority
   - strength of messaging using lexicographical analysis as a function of provocations
 
-datasets
+## Results
 
-- beyondparallel provocation data (2006-2017)
-- UN COMTRADE data (2006-2017)
-- messaging
-  - UNSC speeches (2014-2017)
-  - Chinese Ambassador to DPRK press releases (2006-2010)
-  - Chinese state news articles (e.g. People's Daily) -- need to figure out how to gather / scrape these articles
+![](output/provocation_years.svg)
+
+![](output/china_unsc_interests.svg)
+
+![china_trade_total](output/china_trade_total.svg)
+
+![china_trade_us_rok_jpn](output/china_trade_us_rok_jpn.svg)
+
+![china_trade_dprk](output/china_trade_dprk.svg)
 
 ##Bibliography
 
