@@ -2,6 +2,7 @@ library(quanteda)
 library(dplyr)
 library(magrittr)
 library(ggplot2)
+library(stringr)
 
 ##########
 #  Data  #
@@ -11,11 +12,17 @@ library(ggplot2)
 # It consists of speeches by Chinese representatives in the Security Council on DPRK topics.
 # Text and metadata from each meeting's PDFs was copied into a CSV table, then quanteda objects were formed.
 
-unsc_meeting_file <- "~/Documents/rprojects/poli199/data/china-unsc-nkmeetings.RData"
-load(unsc_meeting_file)
+unsc_meeting_file <- "~/Documents/rprojects/poli199/data/china-unsc-nkmeetings.csv"
+meeting_table <- read.csv(unsc_meeting_file, stringsAsFactors = F)
+meeting_table %<>% mutate(date = as.Date(date),
+                          topic = as.factor(gsub("\x92", "'", topic)),
+                          text = gsub("\x92", "'", text),
+                          speaker = as.factor(speaker))
 
-raw_meet_tok <- meet_tok
-meet_tok %<>% tokens_remove(stopwords('en'))
+meet_corpus <- corpus(meeting_table, docid_field="meeting_id", text_field="text")
+raw_meet_tok <- tokens(meet_corpus)
+meet_tok <- raw_meet_tok %>% tokens_remove(stopwords('en'))
+
 compounds <- c("Terminal High Altitude Area Defense",
                "Democratic People's Republic Korea",
                "Korean peninsula",
@@ -101,17 +108,27 @@ interests_intexts <- meet_tok %>% kwic(top_interests, window=0)
 interests_intexts %<>% mutate(keyword = tolower(keyword) %>%
                                 gsub("denucleariz.*", "denuclearization", .) %>%
                                 gsub("stable", "stability", .),
-                              docname = as.numeric(gsub("text", "", docname))) %>%
+                              docname = as.character(docname)) %>%
                        count(docname, keyword)
 
+for (k in unique(interests_intexts$keyword)) {
+  for (d in unique(interests_intexts$docname)) {
+    if (nrow(interests_intexts %>% filter(docname == d & keyword == k)) == 0){
+      interests_intexts <- rbind(interests_intexts, data.frame(docname=d, keyword=k, n=0))
+    }
+  }
+}
+
 # bring in variables from the corpus
-interests_intexts %<>% mutate(word_count = str_count(meet_corp[[docname, "texts"]], '\\w+'),
-                              date = meet_corp[[docname, "date"]],
-                              speaker = meet_corp[[docname, "speaker"]],
-                              topic = meet_corp[[docname, "topic"]])
+interests_intexts %<>% mutate(word_count = str_count(meet_corpus[[docname, "texts"]], '\\w+'),
+                              date = meet_corpus[[docname, "date"]],
+                              speaker = meet_corpus[[docname, "speaker"]],
+                              topic = meet_corpus[[docname, "topic"]])
+
+interests_intexts %>% filter(date > "2014-01-01") %>% ggplot(aes(x=date, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.0008) + geom_smooth(method=glm, se=F)
 
 # visualise the raw data
-interests_intexts %>% ggplot(aes(x=docname, y=n, fill=keyword)) + geom_col(position="fill")
+interests_intexts %>% ggplot(aes(x=as.factor(docname), y=n, fill=keyword)) + geom_col(position="fill")
 
 # visualise based on topic and speaker
 interests_intexts %>% ggplot(aes(x=topic, y=n, fill=keyword)) + geom_col(position="fill") + coord_flip()
@@ -121,5 +138,4 @@ interests_intexts %>% ggplot(aes(x=speaker, y=n, fill=keyword)) + geom_col(posit
 interests_intexts %>% ggplot(aes(x=docname, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.0001) + geom_line()
 interests_intexts %>% ggplot(aes(x=date, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.001)
 
-interests_intexts %>% filter(date > "2014-01-01") %>% ggplot(aes(x=date, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.001) + geom_smooth(se=F)
 
