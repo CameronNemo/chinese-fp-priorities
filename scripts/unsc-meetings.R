@@ -12,7 +12,7 @@ library(stringr)
 # It consists of speeches by Chinese representatives in the Security Council on DPRK topics.
 # Text and metadata from each meeting's PDFs was copied into a CSV table, then quanteda objects were formed.
 
-unsc_meeting_file <- "~/Documents/rprojects/poli199/data/china-unsc-nkmeetings.csv"
+unsc_meeting_file <- "data/china-unsc-nkmeetings.csv"
 meeting_table <- read.csv(unsc_meeting_file, stringsAsFactors = F)
 meeting_table %<>% mutate(date = as.Date(date),
                           topic = as.factor(gsub("\x92", "'", topic)),
@@ -118,6 +118,7 @@ for (k in unique(interests_intexts$keyword)) {
     }
   }
 }
+rm(d, k) # don't pollute, kids
 
 # bring in variables from the corpus
 interests_intexts %<>% mutate(word_count = str_count(meet_corpus[[docname, "texts"]], '\\w+'),
