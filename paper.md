@@ -54,17 +54,23 @@ denuclearisation
 - priority
   - strength of messaging using lexicographical analysis as a function of provocations
 
-## Results
+###Data and Results
+
+​	
+
+![](output/china_trade_total.svg)
+
+![](output/china_trade_us_rok_jpn.svg)
+
+![](output/china_trade_dprk.svg)
 
 ![](output/provocation_years.svg)
 
+![](output/provocation_types.svg)
+
+![](output/provocation_types_table.svg)
+
 ![](output/china_unsc_interests.svg)
-
-![china_trade_total](output/china_trade_total.svg)
-
-![china_trade_us_rok_jpn](output/china_trade_us_rok_jpn.svg)
-
-![china_trade_dprk](output/china_trade_dprk.svg)
 
 ##Bibliography
 

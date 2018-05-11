@@ -109,16 +109,8 @@ interests_intexts %<>% mutate(keyword = tolower(keyword) %>%
                                 gsub("denucleariz.*", "denuclearization", .) %>%
                                 gsub("stable", "stability", .),
                               docname = as.character(docname)) %>%
-                       count(docname, keyword)
-
-for (k in unique(interests_intexts$keyword)) {
-  for (d in unique(interests_intexts$docname)) {
-    if (nrow(interests_intexts %>% filter(docname == d & keyword == k)) == 0){
-      interests_intexts <- rbind(interests_intexts, data.frame(docname=d, keyword=k, n=0))
-    }
-  }
-}
-rm(d, k) # don't pollute, kids
+                       count(docname, keyword) %>%
+		       complete(docname, keyword, fill = list(n=0))
 
 # bring in variables from the corpus
 interests_intexts %<>% mutate(word_count = str_count(meet_corpus[[docname, "texts"]], '\\w+'),
