@@ -1,5 +1,4 @@
-library(dplyr)
-library(ggplot2)
+source("scripts/common.R")
 
 early <- read.csv("data/comtrade0307.csv")
 mid <- read.csv("data/comtrade0812.csv")
@@ -20,44 +19,27 @@ supplement <- clean_comtrade_totals(supplement)
 all <- rbind(early, mid, late)
 
 # TODO: 2017supplement, check portions
-part_year <- all %>% group_by(Partner, Year) %>% summarise(trade_usd = sum(Trade.Value))
-part_year$trade_portion <- part_year$trade_usd / part_year$trade_usd[part_year$Partner == "World"]
+#part_year <- all %>% group_by(Partner, Year) %>% summarise(trade_usd = sum(Trade.Value))
+#part_year$trade_portion <- part_year$trade_usd / part_year$trade_usd[part_year$Partner == "World"]
 part_year_chn <- all %>% filter(Reporter.ISO == "CHN") %>%
                          group_by(Partner.ISO, Year, Trade.Flow) %>%
                          summarise(Trade.Value = sum(Trade.Value))
+# get indexed trading patterns
+part_year_chn %<>%
+  group_by(Partner.ISO, Trade.Flow) %>%
+  mutate(Trade.Index = ((Trade.Value / Trade.Value[Year == min(Year)]) - 1) * 100)
 
-# NOT CHINA SPECIFIC
-# DPRK raw value
-#part_year %>% filter(Partner == "Dem. People's Rep. of Korea") %>% ggplot(aes(y=trade_usd, x=Year)) + geom_line()
-# All partners, raw
-#part_year %>% ggplot(aes(y=trade_usd, x=Year, color=Partner)) + geom_line()
-# USA, ROK, Japan relative to world
-#part_year %>% filter(Partner != "World", Partner != "Dem. People's Rep. of Korea") %>%
-#  ggplot(aes(y=trade_portion, x=Year, color=Partner)) + geom_line()
+# adjust PRK trade index for global trends
+chn_prk_adj <-
+  part_year_chn %>%
+  filter(Partner.ISO == "PRK")
+chn_prk_adj$Trade.IndexAdj <-
+  chn_prk_adj$Trade.Index -
+  part_year_chn$Trade.Index[part_year_chn$Trade.Flow != "Re-Import" & part_year_chn$Partner.ISO == "WLD"]
 
-part_year_chn %>%
-  filter(Trade.Flow != "Re-Import") %>%
-  ggplot(aes(y=Trade.Value, x=Year, color=Partner.ISO)) +
-    geom_point(size=1.8) +
-    facet_wrap(~Trade.Flow) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-    ggtitle("Total Chinese Trade Flows")
-
-ggsave("output/china_trade_total.svg", device="svg")
-
-part_year_chn %>%
-  filter(Partner.ISO != "WLD", Partner.ISO != "PRK") %>%
-  ggplot(aes(y=Trade.Value, x=Year, color=Partner.ISO)) +
-    geom_point(size=2.2222) +
-    facet_wrap(~Trade.Flow) +
-    ggtitle("Chinese Trade Flows with US, Japan, and RoK")
-
-ggsave("output/china_trade_us_rok_jpn.svg", device="svg")
-
-part_year_chn %>%
-  filter(Partner.ISO == "PRK") %>%
-  ggplot(aes(y=Trade.Value, x=Year, color=Trade.Flow)) +
-    geom_point(size=3.3333) +
-    ggtitle("China-DPRK Trade Flows")
-
-ggsave("output/china_trade_dprk.svg", device="svg")
+chn_prk_spread <-
+  chn_prk_adj %>%
+  select(-Trade.Value, -Trade.Index) %>%
+  spread(Trade.Flow, Trade.IndexAdj) %>%
+  mutate(Year.Start = as.character(Year)) %>%
+  select(-Year)

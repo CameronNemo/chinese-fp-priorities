@@ -1,8 +1,4 @@
-library(quanteda)
-library(dplyr)
-library(magrittr)
-library(ggplot2)
-library(stringr)
+source("scripts/common.R")
 
 ##########
 #  Data  #
@@ -93,11 +89,11 @@ post_interest <- term_frequency(interest_kwic$post)
 
 # qualititative analysis for top terms using pre_interest and post_interest
 
-top_interests <- c("peace",
+top_interests <- c("peace*",
                    "stability",
                    "stable",
                    "security",
-                   "denucleariz*")
+                   "*nuclear*")
 
 # now let's look for mentions of these interests across the texts
 interests_intexts <- meet_tok %>% kwic(top_interests, window=0)
@@ -106,37 +102,15 @@ interests_intexts <- meet_tok %>% kwic(top_interests, window=0)
 # convert docnames to numeric values, so they can be used to reference data in the corpus
 # finally, tally mentions per document with count()
 interests_intexts %<>% mutate(keyword = tolower(keyword) %>%
-                                gsub("denucleariz.*", "denuclearization", .) %>%
-                                gsub("stable", "stability", .),
+                                gsub(".*nuclear.*", "denuclearization", .) %>%
+                                gsub("stable", "stability", .) %>%
+                                gsub("peace.*", "peace", .),
                               docname = as.character(docname)) %>%
-                       count(docname, keyword) %>%
-		       complete(docname, keyword, fill = list(n=0))
+                                        count(docname, keyword) %>%
+                                        complete(docname, keyword, fill = list(n=0))
 
 # bring in variables from the corpus
 interests_intexts %<>% mutate(word_count = str_count(meet_corpus[[docname, "texts"]], '\\w+'),
                               date = meet_corpus[[docname, "date"]],
                               speaker = meet_corpus[[docname, "speaker"]],
                               topic = meet_corpus[[docname, "topic"]])
-
-interests_intexts %>%
-  filter(date > "2014-01-01") %>%
-  ggplot(aes(x=date, y=n/word_count, color=keyword)) +
-  geom_jitter(alpha=0.67, size=4, width=0, height=0.0008) +
-  geom_smooth(method=glm, se=F) +
-  ggtitle("Interests in China's UNSC Speeches") +
-  ylab("Relative Frequency") + xlab("Year")
-
-ggsave("output/china_unsc_interests.svg", device="svg")
-
-# visualise the raw data
-interests_intexts %>% ggplot(aes(x=as.factor(docname), y=n, fill=keyword)) + geom_col(position="fill")
-
-# visualise based on topic and speaker
-interests_intexts %>% ggplot(aes(x=topic, y=n, fill=keyword)) + geom_col(position="fill") + coord_flip()
-interests_intexts %>% ggplot(aes(x=speaker, y=n, fill=keyword)) + geom_col(position="fill") + coord_flip()
-
-# account for texts of different lengths with the word_count variable
-interests_intexts %>% ggplot(aes(x=docname, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.0001) + geom_line()
-interests_intexts %>% ggplot(aes(x=date, y=n/word_count, color=keyword)) + geom_jitter(alpha=0.67, size=4, width=0, height=0.001)
-
-

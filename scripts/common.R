@@ -1,0 +1,7 @@
+library(dplyr)
+library(tidyr)
+library(magrittr)
+library(ggplot2)
+library(gridExtra)
+library(stringr)
+library(quanteda)
