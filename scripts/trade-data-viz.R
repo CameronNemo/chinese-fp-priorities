@@ -9,29 +9,32 @@ source("scripts/trade-data.R")
 #part_year %>% filter(Partner != "World", Partner != "Dem. People's Rep. of Korea") %>%
 #  ggplot(aes(y=trade_portion, x=Year, color=Partner)) + geom_line()
 
-part_year_chn %>%
-  filter(Trade.Flow != "Re-Import") %>%
-  ggplot(aes(y=Trade.Value, x=Year, color=Partner.ISO)) +
+long_adj_index %>%
+  ggplot(aes(y=Trade.Value/1000000000000, x=Year, color=Partner.ISO)) +
   geom_point(size=1.8) +
   facet_wrap(~Trade.Flow) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Total Chinese Trade Flows")
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ylab("Trade Value (trillions of USD)") +
+  ggtitle("Exports to US Significant on a Global Scale")
 
-ggsave("output/china_trade_total.svg", device="svg")
+ggsave("output/china_trade_total.svg", width=5.25, height=3.33, device="svg")
 
-part_year_chn %>%
+long_adj_index %>%
   filter(Partner.ISO != "WLD", Partner.ISO != "PRK") %>%
-  ggplot(aes(y=Trade.Value, x=Year, color=Partner.ISO)) +
+  ggplot(aes(y=Trade.Index, x=Year, color=Partner.ISO)) +
   geom_point(size=2.2222) +
   facet_wrap(~Trade.Flow) +
-  ggtitle("Chinese Trade Flows with US, Japan, and RoK")
+  ylab("Percent Growth") +
+  ggtitle("Trade with Japan falls behind US and RoK")
 
-ggsave("output/china_trade_us_rok_jpn.svg", device="svg")
+ggsave("output/china_trade_us_rok_jpn.svg", width=5.25, height=3.33, device="svg")
 
-part_year_chn %>%
-  filter(Partner.ISO == "PRK") %>%
-  ggplot(aes(y=Trade.Value, x=Year, color=Trade.Flow)) +
-  geom_point(size=3.3333) +
-  ggtitle("China-DPRK Trade Flows")
+long_adj_index %>%
+  filter(Partner.ISO == "PRK" | Partner.ISO == "WLD") %>%
+  ggplot(aes(y=Trade.Index, x=Year, color=Partner.ISO)) +
+  geom_point(size=2.2222) +
+  facet_wrap(~Trade.Flow) +
+  ylab("Percent Growth") +
+  ggtitle("China-DPRK Trade Growing Slowly")
 
-ggsave("output/china_trade_dprk.svg", device="svg")
+ggsave("output/china_trade_dprk.svg", width=5.25, height=3.33, device="svg")

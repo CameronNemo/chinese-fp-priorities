@@ -12,7 +12,7 @@ prov %<>%
   mutate(Date.Start = as.Date(trimws(gsub("\\s+-\\s+.*", "", as.character(Date)))),
          Date.End = as.Date(trimws(gsub(".*\\s+-\\s+", "", as.character(Date))))) %>%
   select(-Date) %>%
-  filter(Date.Start > as.Date("2003-01-01"))
+  filter(Date.Start > as.Date("1993-01-01"))
 
 prov_per_year <- function(.data) {
   .data %>%
