@@ -37,12 +37,30 @@ long_adj_index <-
   mutate(Trade.Index = ((Trade.Value / Trade.Value[Year == min(Year)]) - 1) * 100) %>%
   ungroup()
 
+# add Trade.Growth variable
+long_growth <-
+  long_adj_index %>%
+  mutate(Partner.Flow = paste(Partner.ISO, Trade.Flow, sep=".")) %>%
+  select(Year, Partner.Flow, Trade.Value) %>%
+  group_by(Partner.Flow) %>%
+  mutate(Trade.ValueLag = lag(Trade.Value, 1),
+         Trade.Growth = ifelse(is.na(Trade.ValueLag), NA,
+                               (Trade.Value - Trade.ValueLag) / Trade.ValueLag)) %>%
+  select(-Trade.ValueLag, -Trade.Value) %>%
+  ungroup() %>%
+  # filter NA values
+  filter(Year > min(Year))
+
 # widen to make regressions easier
 wide_adj_index <-
   long_adj_index %>%
   mutate(Partner.Flow = paste(Partner.ISO, Trade.Flow, sep=".")) %>%
   select(Year, Partner.Flow, Trade.Index) %>%
   spread(Partner.Flow, Trade.Index)
+
+wide_growth  <-
+  long_growth %>%
+  spread(Partner.Flow, Trade.Growth)
 
 # TODO: 2017supplement, check portions
 
