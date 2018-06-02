@@ -34,39 +34,55 @@ This paper aims to reveal how China has balanced its foreign policy goals in the
 
 ## Research Design
 
-​	For the topic of economic interdependence, the first test will aim to determine China's willingness to use economic leverage as a tool to achieve other foreign policy goals. The dependent variable in this test is the China-DPRK trade relationship. From the UN Comtrade Database, yearly data for imports and exports in dollars between China and the DPRK is available. Representing geopolitical circumstances undesirable to China, provocations by the DPRK regime serve as the independent variable. The exact date of these provocations is available, so they will be grouped in years to make comparison with the trade data simpler. Then, exports and imports will be regressed on provocations in the same year and lagged years. While the dataset of provocations compiled by BeyondParallel has a long time span and is very precise in its event times, the trade statistics are more challenging. The first issue is that the data is not precise, since only annual totals are available through the UN Comtrade Database. Secondly, data for 2017 has not been reported yet.
+​	In determining the role of economic interdependence, I use a model that defines China's trade relationships with the DPRK, RoK, USA, and Japan as the dependent variable. In the model, the independent variables are the frequency of different types of provocation events. My analysis controls for China's trade with the rest of the world.
 
-​	The second test will focus on China's trade relationships with other North East Asian actors, particularly the Republic of Korea, Japan, and the United States. Similarly, the UN Comtrade Database will be a source for annual US dollar denominated export and import totals. However, this test will use said data as the independent variable. The dependent variable will attempt to measure China's desire for a peaceful relationship with the North East Actors in question and specifically in regards to the Korean peninsula. Using several sources, including China's UN Security Council speeches, DPRK ambassador press releases, and state news articles, strength of messaging will be evaluated lexicographically and serve as the dependent variable.
+​	The annual growth in exports and imports to and from each trade partner is used to measure the progress and status of the trade relationships. From the UN Comtrade Database, yearly data for imports and exports in dollars between China and its trade partners is available.[^comtrade] From this data, I generated annual figures for trade growth, expressed as a percentage increase in total value of the flow in question relative to the previous year. There are three main measures of trade growth used in my models: combined export and import growth, export growth only, and import growth only.
 
-### Data and Results
+​	Provocations by the DPRK, RoK, and the USA serve as the independent variable, representing geopolitical circumstances undesirable from the perspective of China. There are three major types of provocations relevant to this analysis: military exercises ( RoK and USA), missile provocations (DPRK), and nuclear provocations (DPRK). The provocation data, compiled by BeyondParallel, has a long time span and is very precise in its event times.[^provdata] Although the exact dates of the events are known, the provocations are grouped by year to make comparison with the trade data simpler.
 
-​	In evaluating the data, I will first frame the results with descriptive analysis of the individual datasets, then test the hypotheses and relate the datasets to each other. The data on trade flows has a wide scope, and I have gathered annual flows from 2003 to 2016. In the first two graphs, total flows and flows with the US and its North East Asian allies are shown.
+​	The scope of the regression analysis is from 1994 through 2016. This is a wide time frame that includes two significant economic crises (East Asian Financial Crisis and the Global Recession) and several shifts in the geopolitical posturing of the DPRK. The analysis does not extend prior to the fall of the Soviet Union, which left China as one of the most dominant economic powers in the region. China has not reported its trade totals for 2017, so the year is not included in the analysis.
+
+### Descriptive Analysis
+
+​	In evaluating the data, I will first frame the results with descriptive analysis of the individual datasets, then test the hypotheses and relate the datasets to each other. In the first two graphs, I show China's trade flows with all partners, then with the US and its North East Asian allies only. The legends of these figures use the ISO names for the trade partners. PRK corresponds to the DPRK, KOR to RoK, JPN to Japan, and WLD to the world.
 
 ![](output/china_trade_total.svg)
 
-​	This figure is important because it demonstrates the magnitude of Chinese exports and imports, which peak at $2.3 trillion and nearly \$2 trillion, respectively. Another notable detail is that while US, Japanese, and South Korean trade flows are discernible in comparison to China's total flows, Chinese trade with the DPRK is minute relative to China's flows with the rest of the world.
+​	This figure is important because it demonstrates the magnitude of Chinese exports and imports, which peak at $2.3 trillion and $1.8 trillion, respectively. Another notable detail is that while US, Japanese, and South Korean trade flows (particularly exports to the US) form a significant portion of China's global flows, Chinese trade with the DPRK is minute relative to flows with the rest of the world.
 
 ![](output/china_trade_us_rok_jpn.svg)
 
-​	With a more detailed view of Chinese trade with US and its North East Asian allies, two important facts become apparent. The first is that growth in exports to the US has far outpaced any other flow. Second, flows have mostly declined since 2014 in line with the trend for China's total trade flows. An important implication of this is that it decreases incentives for maintaining peaceful conditions. I would expect that this decrease in flows would lead China to be less susceptible to external influence and less likely to compromise.
+​	A more detailed view of Chinese trade with US and its North East Asian allies, two important facts become apparent. The first is that trade with the RoK has grown faster than both US and Japanese trade. Second, growth in trade with Japan has largely stagnated. An important implication of this is that it decreases incentives for maintaining peaceful conditions and a healthy trade relationship. I would expect that from these trends that China would be more willing to forgo gains from trade with Japan than with the RoK or US.
+
+​	Since the beginning of this analysis, growth in China-DPRK trade flows has not kept up with the global trend. However, bumps in imports and exports occurred between 2010 and 2011. This is around the time that the DPRK sunk an RoK ship, the Cheonan.
 
 ![](output/china_trade_dprk.svg)
 
-​	Since 2003, China-DPRK trade flows have grown substantially. The largest bumps occurred between 2010 and 2011 for both imports and exports. One possible explanation for this increase is a reduction in DPRK-RoK trade following the sinking of the Cheonan, but the figure below shows that fewer missile provocations occurred in 2010 and 2011 than the years prior. Another critical note is that China-DPRK trade flows did not decrease substantially in 2014, 2015, or 2016. Instead, they mostly followed the trend of China-World trade. This is surprising, since during these years, the DPRK initiated a substantial amount of missile provocations. Despite these high levels of provocation, China did not put severe sanctions in place until 2017.
+​	Another critical detail is that China-DPRK trade flows did not decrease substantially in the mid 2010s. Instead, they mostly followed the trend of China-World trade.
+
+​	This is surprising because during these years, the DPRK initiated a substantial amount of missile provocations (see figure below). Despite these high levels of provocation, China did not put severe sanctions in place until 2017.
 
 ![](output/provocation_years.svg)
 
-![](output/provocation_types.svg)
+​	This subset of beyondparallel's provocation events reveals several important features of provocation on the Korean peninsula. First, military exercises have been routine and consistent in recent years. Since 2005, there have been military exercises every year. Next, I would like to address nuclear provocations, which have been more intermittent in frequency but still fairly consistent. With the recent collapse of one of the DPRK's nuclear facilities, it is likely that nuclear provocations will be less frequent in the short term. Because there have not been significant increases in military exercises or nuclear provocations since 2005, there is some uncertainty how actors in the region may behave if this did occur. 
 
 ![](output/provocation_types_table.svg)
 
-​	Starting in 2003, with the DPRK withdrawal from the NPT, this subset of beyondparallel's provocation events reveals several important features of provocation on the Korean peninsula. First, military exercises have been routine and consistent. Since 2005, there have been military exercises every year. Next, I would like to shift attention to nuclear provocations, which have been more intermittent in frequency but fairly consistent in amount. With the recent collapse of one of the DPRK's nuclear facilities, it is likely that nuclear provocations will be low frequency in the short term. Because there have not been significant increases in military exercises or nuclear provocations, there is some uncertainty how actors in the region may behave if this did occur. The final and most important detail I would like to highlight is the high degree of variation in number of missile provocations each year: the standard deviation for annual missile provocations is larger than the mean. The distribution is also skewed to the right, with a mean exactly twice its median. Between 2014 and 2017, missile provocations exploded in amount; in that period missile provocations are several times the amount prior to 2014. This is a substantial shift in behavior, and I would like to point out again that China only instituted severe economic leverage in 2017, which is considerably late compared to when the DPRK began accelerating its rate of missile provocations.
+​	The final and most important detail I would like to highlight is the high degree of variation in number of missile provocations each year: the standard deviation for annual missile provocations is larger than the mean. The distribution is also skewed to the right, with a mean nearly twice the median. Between 2014 and 2017, missile provocations sharply rose; in that period missile provocations are several times more frequent than prior to 2014. This is a substantial shift in behavior, and I would like to point out again that China only instituted severe economic sanctions in 2017, which is considerably late compared to when the DPRK began accelerating its rate of missile provocations.
+
+​	The final descriptive figure aims to map the frequency of mentions of Chinese foreign policy goals and interests in the state's UN Security Council speeches on the subject of the DPRK. The dataset consists of 16 speeches by Chinese officials between late 2014 and 2018. Eleven speeches occurred in 2017, three in 2016, and one each in 2015 and 2014. Prior to 2014, China had not spoken on the subject of the DPRK since 2009, and there have been no speeches on the subject in 2018 so far. This lack of data availability is challenging, but also telling. The UN Security Council meetings dedicated to the subject of the DPRK has rapidly increased as provocations have sustained high levels.
 
 ![](output/china_unsc_interests.svg)
 
-​	This final figure aims to map the frequency of mentions of Chinese foreign policy goals and interests in the state's UN Security Council speeches on the subject of the DPRK. The dataset consists of 16 speeches by Chinese officials between late 2014 and 2018. Eleven speeches occurred in 2017, three in 2016, and one each in 2015 and 2014. Prior to 2014, China had not spoken on the subject of the DPRK since 2009, and there have been no speeches on the subject in 2018 so far. This lack of data availability is challenging, but also telling. The UN Security Council meetings dedicated to the subject of the DPRK has rapidly increased as provocations have sustained high levels.
-
 ​	The keywords were chosen by examining the most common words used in proximity to the word "interest" and various variations and synonyms of the word, including "goal" and "concern". Then, the number of mentions of each of these keywords was counted for each speech. While the four keywords may ostensibly seem similar, a nuanced view would note that they are potentially contradictory. For example, denuclearization on the Korean peninsula may be extremely difficult to achieve without sacrificing short term peace and stability. For this reason, the substantial decline in mentions of peace and security with a simultaneous climb in mentions of denuclearization is quite worrying. Of course, these trends should be viewed with some important caveats in mind. The first, data availability, was mentioned above. If another round of UN Security Council meetings regarding the DPRK occurs in the future, there is reason to believe that China will have a different set of goals and interests. The other caveat is that this figure provides no information on the context of the keyword mentions. Lexicographical analysis would need to be used to determine subjective details about China's speech, such as strength or weakness of messaging.
+
+### Results and Discussion
+
+
+
+## Conclusion
+
+
 
 ## Bibliography
 
@@ -83,3 +99,5 @@ This paper aims to reveal how China has balanced its foreign policy goals in the
 [^xuetong]: Xuetong, Yan. "From Keeping a Low Profile to Striving for Achievement". The Chinese Journal of International Politics, Vol. 7, No. 2, 2014, 153–184.
 [^anderson]: Anderson, Nicholas D. "America’s North Korean Nuclear Trilemma". Washington Quarterly, Vol. 40, No. 4, 2017, 153-164.
 [^council-foreign-relations]: Albert, Eleanor. "The China–North Korea Relationship." Council on Foreign Relations, March 2017.
+[^comtrade]: 
+[^provdata]: 
