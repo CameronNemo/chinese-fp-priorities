@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>paper</title><link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}#write, body { height: auto; }
+#write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write ol, #write p, #write ul { position: relative; }
+#write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+h1, h2, h3, h4, h5, h6, tr { break-inside: avoid; }
+#write, pre { white-space: pre-wrap; }
+.CodeMirror, .md-fences, table { text-align: left; }
+.md-reset, a:active, a:hover { outline: 0px; }
+.md-reset, .md-toc-item a { text-decoration: none; }
+.MathJax_SVG, .md-reset { float: none; direction: ltr; }
+:root { --bg-color:#ffffff; --text-color:#333333; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+a.url { word-break: break-all; }
+.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
+#write { margin: 0px auto; word-break: normal; word-wrap: break-word; padding-bottom: 70px; overflow-x: visible; }
+.first-line-indent #write p .md-line { text-indent: 0px; }
+.first-line-indent #write li, .first-line-indent #write p, .first-line-indent #write p .md-line:first-child { text-indent: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write > blockquote:first-child, #write > div:first-child, #write > ol:first-child, #write > p:first-child, #write > pre:first-child, #write > table:first-child, #write > ul:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+p { orphans: 4; -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0px; -webkit-margin-after: 0px; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+#write > figure:first-child { margin-top: 2em; }
+figure { overflow-x: auto; margin: 1.2em 0px 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; }
+.CodeMirror-line, .md-fences { break-inside: avoid; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; margin-right: 4px; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+.md-fences { font-size: 0.9rem; display: block; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; vertical-align: top; background: 0px 0px; text-shadow: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; }
+.md-toc-inner, a img, img a { cursor: pointer; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0px; }
+}
+.footnote-line { white-space: pre-wrap; margin-top: 0.714em; font-size: 0.7em; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > img:only-child { display: block; margin: auto; }
+.md-line > .md-image:only-child, p > .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+.mathjax-block:not(:empty)::after, .md-toc-content::after, .md-toc::after { display: none; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.143rem; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.MathJax_SVG, .mathjax-block .MathJax_SVG_Display { text-indent: 0px; max-width: none; max-height: none; min-height: 0px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, tt { font-family: var(--monospace); }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0px; position: relative; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; min-width: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg, [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+
+
+@font-face { font-family: "PT Serif"; font-style: normal; font-weight: normal; src: local("PT Serif"), local("PTSerif-Regular"), url("./newsprint/PT_Serif-Web-Regular.ttf"); }
+@font-face { font-family: "PT Serif"; font-style: italic; font-weight: normal; src: local("PT Serif"), local("PTSerif-Italic"), url("./newsprint/PT_Serif-Web-Italic.ttf"); }
+@font-face { font-family: "PT Serif"; font-style: normal; font-weight: bold; src: local("PT Serif"), local("PTSerif-Bold"), url("./newsprint/PT_Serif-Web-Bold.ttf"); }
+@font-face { font-family: "PT Serif"; font-style: italic; font-weight: bold; src: local("PT Serif"), local("PTSerif-BoldItalic"), url("./newsprint/PT_Serif-Web-BoldItalic.ttf"); }
+:root { --active-file-bg-color: rgba(32, 43, 51, 0.63); --active-file-text-color: white; --bg-color: #f3f2ee; --text-color: #1f0909; }
+html { font-size: 16px; }
+html, body { background-color: rgb(243, 242, 238); font-family: "PT Serif", "Times New Roman", Times; color: rgb(31, 9, 9); line-height: 1.5em; }
+#write { max-width: 40em; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote::before, blockquote::after, q::before, q::after { content: none; }
+table { border-collapse: collapse; border-spacing: 0px; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+h1 { font-size: 1.875em; line-height: 1.6em; margin-top: 2em; }
+h2, h3 { font-size: 1.3125em; line-height: 1.15; margin-top: 2.28571em; margin-bottom: 1.15em; }
+h3 { font-weight: normal; }
+h4 { font-size: 1.125em; margin-top: 2.67em; }
+h5, h6 { font-size: 1em; }
+h1 { border-bottom: 1px solid; margin-bottom: 1.875em; padding-bottom: 0.8125em; }
+a { text-decoration: none; color: rgb(6, 85, 136); }
+a:hover, a:active { text-decoration: underline; }
+p, blockquote, .md-fences { margin-bottom: 1.5em; }
+h1, h2, h3, h4, h5, h6 { margin-bottom: 1.5em; }
+blockquote { font-style: italic; border-left: 5px solid; margin-left: 2em; padding-left: 1em; }
+ul, ol { margin: 0px 0px 1.5em 1.5em; }
+ol li { list-style-type: decimal; list-style-position: outside; }
+ul li { list-style-type: disc; list-style-position: outside; }
+.md-meta, .md-before, .md-after { color: rgb(153, 153, 153); }
+table { margin-bottom: 1.5em; font-size: 1em; }
+thead th, tfoot th { padding: 0.25em 0.25em 0.25em 0.4em; text-transform: uppercase; }
+th { text-align: left; }
+td { vertical-align: top; padding: 0.25em 0.25em 0.25em 0.4em; }
+code, .md-fences { background-color: rgb(218, 218, 218); padding-left: 1ch; padding-right: 1ch; }
+.md-fences { margin-left: 2em; margin-bottom: 3em; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -0.8em; }
+pre, code, tt { font-size: 0.875em; line-height: 1.71429em; }
+h1 { line-height: 1.3em; font-weight: normal; margin-bottom: 0.5em; }
+p + ul, p + ol { margin-top: -1em; }
+h3 + ul, h4 + ul, h5 + ul, h6 + ul, h3 + ol, h4 + ol, h5 + ol, h6 + ol { margin-top: 0.5em; }
+li > ul, li > ol { margin-top: inherit; }
+h2, h3 { margin-bottom: 0.75em; }
+hr { border-top: none; border-right: none; border-bottom: 1px solid; border-left: none; }
+h1 { border-color: rgb(197, 197, 197); }
+blockquote { border-color: rgb(186, 186, 186); color: rgb(101, 101, 101); }
+.ty-table-edit { background-color: transparent; }
+thead { background-color: rgb(218, 218, 218); }
+tr:nth-child(2n) { background: rgb(232, 231, 231); }
+hr { border-color: rgb(197, 197, 197); }
+.task-list { padding-left: 1rem; }
+.md-task-list-item { padding-left: 1.5rem; list-style-type: none; }
+.md-task-list-item > input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(221, 221, 221); background-color: rgb(243, 242, 238); }
+.md-task-list-item > input:checked::before, .md-task-list-item > input[checked]::before { color: inherit; }
+#write pre.md-meta-block { min-height: 1.875rem; color: rgb(85, 85, 85); border: 0px; background: transparent; margin-left: 1em; margin-top: 1em; }
+.md-image > .md-meta { color: rgb(155, 81, 70); }
+.md-image > .md-meta { font-family: Menlo, "Ubuntu Mono", Consolas, "Courier New", "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif; }
+#write > h3.md-focus::before { left: -1.5rem; color: rgb(153, 153, 153); border-color: rgb(153, 153, 153); }
+#write > h4.md-focus::before { left: -1.5rem; top: 0.25rem; color: rgb(153, 153, 153); border-color: rgb(153, 153, 153); }
+#write > h5.md-focus::before { left: -1.5rem; color: rgb(153, 153, 153); border-color: rgb(153, 153, 153); }
+#write > h6.md-focus::before { left: -1.5rem; top: 0.3125rem; color: rgb(153, 153, 153); border-color: rgb(153, 153, 153); }
+.md-toc:focus .md-toc-content { margin-top: 19px; }
+.md-toc-content:empty::before { color: rgb(6, 85, 136); }
+.md-toc-item { color: rgb(6, 85, 136); }
+#write div.md-toc-tooltip { background-color: rgb(243, 242, 238); }
+#typora-sidebar { background-color: rgb(243, 242, 238); box-shadow: rgba(0, 0, 0, 0.376) 0px 6px 12px; }
+.pin-outline #typora-sidebar { background: inherit; box-shadow: none; border-right: 1px dashed; }
+.pin-outline #typora-sidebar:hover .outline-title-wrapper { border-left: 1px dashed; }
+.outline-item:hover { background-color: rgb(218, 218, 218); border-left: 28px solid rgb(218, 218, 218); border-right: 18px solid rgb(218, 218, 218); }
+.typora-node .outline-item:hover { border-right: 28px solid rgb(218, 218, 218); }
+.outline-expander::before { content: ""; font-family: FontAwesome; font-size: 14px; top: 1px; }
+.outline-expander:hover::before, .outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.modal-content { background-color: rgb(243, 242, 238); }
+.auto-suggest-container ul li { list-style-type: none; }
+.megamenu-menu, #top-titlebar, #top-titlebar *, .megamenu-content { background: rgb(243, 242, 238); color: rgb(31, 9, 9); }
+.megamenu-menu-header { border-bottom: 1px dashed rgb(32, 43, 51); }
+.megamenu-menu { box-shadow: none; border-right: 1px dashed; }
+header, .context-menu, .megamenu-content, footer { font-family: "PT Serif", "Times New Roman", Times; color: rgb(31, 9, 9); }
+#megamenu-back-btn { color: rgb(31, 9, 9); border-color: rgb(31, 9, 9); }
+.megamenu-menu-header #megamenu-menu-header-title::before { color: rgb(31, 9, 9); }
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active { color: inherit; background-color: rgb(232, 231, 223); }
+.long-btn:hover { background-color: rgb(232, 231, 223); }
+#recent-file-panel tbody tr:nth-child(2n-1) { background-color: transparent !important; }
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) { color: inherit; }
+.megamenu-menu-panel .btn { background-color: rgb(210, 209, 209); }
+.btn-default { background-color: transparent; }
+.typora-sourceview-on #toggle-sourceview-btn, .show-word-count #footer-word-count { background: rgb(199, 197, 197); }
+#typora-quick-open { background-color: inherit; }
+.md-diagram-panel { margin-left: -1ch; margin-top: 24px; }
+.file-list-item-file-name { font-weight: initial; }
+.file-list-item-summary { opacity: 1; }
+.file-list-item { color: rgb(119, 119, 119); }
+.file-list-item.active { background-color: inherit; color: black; }
+.ty-side-sort-btn.active { background-color: inherit; }
+.file-list-item.active .file-list-item-file-name { font-weight: bold; }
+.file-list-item { opacity: 1 !important; }
+.file-library-node.active > .file-node-background { background-color: var(--active-file-bg-color); }
+.file-tree-node.active > .file-node-content { color: var(--active-file-text-color); }
+.md-task-list-item > input { margin-left: -1.6em; margin-top: calc(1rem - 12px); }
+
+
+
+
+
+ .typora-export p, .typora-export .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-node'><h1><a name='header-n0' class='md-header-anchor '></a>Chinese Foreign Policy Priorities in the Korean Peninsula</h1><h2><a name='header-n2' class='md-header-anchor '></a>Introduction</h2><p>​	In this paper I will explore how China&#39;s perceptions and foreign policy priorities change in response to different degrees and types of provocation on the Korean peninsula. The Korean peninsula has been host to significant and frequent military exercises, missile tests, and nuclear tests. China has been given a unique opportunity to demonstrate regional leadership, and a challenge to protect its own security. Historically, China has remained opaque about its foreign policy. This behavior is best explained by Deng Xiaoping&#39;s &#39;24 character strategy&#39; <sup><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup>:</p><blockquote><p>Observe calmly; secure our position; cope with affairs calmly; hide our capabilities and bide our time; be good at maintaining a low profile; and never claim leadership.</p></blockquote><p>This paper aims to reveal how China has balanced its foreign policy goals in the presence of multipolar military provocation and economic stake on the Korean Peninsula. In doing so, it will answer the question: at what point do the stakes of economic integration fail to hold broader geopolitical ambitions?</p><p>​	First, I will investigate the role of China&#39;s trade relationships and economic interdependence in the context of the Korea peninsula. There are likely two extremes that these trade relationships fall under: (i) incentives for peaceful relationships and (ii) policy options to achieve foreign policy goals. These two extremes reflect the idea that under ideal conditions China would want to maximize its gains from trade, but when other priorities are perceived to be more important, the state may forego gains in the short term. In essence, there is a dichotomy of economic interdependence being a priority unto itself as well as a means to achieve other priorities.</p><p>​	I hypothesize that Chinese trade relationships with the United States and Republic of Korea (RoK) act predominantly as incentives for a peaceful relationship, while the relationships with the Democratic People&#39;s Republic of Korea (DPRK) and Japan are more commonly used as policy tools to achieve other goals. In the case of the DPRK, these goals may include a peace treaty or denuclearization on the Korean peninsula. In the case of Japan, they may relate to the Korean peninsula or to disputed territories. This assumption is based on how important the United States and RoK are as trading partners with China, relative to Japan and the DPRK. Japan and the DPRK have a weaker bargaining position with China; thus, the two countries are more vulnerable to Chinese attempts at leveraging its economic power. I expect that increased levels of provocation have an inverse relationship with the trade flows between China and the DPRK.</p><p>​	Next, this paper will evaluate how important China considers denuclearization relative to its other foreign policy goals. By examining Chinese diplomatic messaging, including UN Security Council speeches, we can infer the relative importance of denuclearization in China&#39;s foreign policy agenda. UNSC speeches offer an important opportunity for China to signal its priorities to actors active on the Korean peninsula, since many of them have ambassadors sitting on the Council. Although this stated preference model relies on China&#39;s diplomats to be somewhat transparent about their priorities, they have every incentive to do so given the signalling power of the speeches. I predict that in the presence of accelerating nuclear-related provocation, Chinese messaging on the issue becomes stronger and more focused on specific denuclearization efforts.</p><p>​	This analysis will contribute perspective on how a regional power reacts to a crisis when it has several roles, including leader, mediator, and stakeholder. This has potential to offer two key inferences: how China and other regional powers may behave in other similarly provocative situations, and which factors are determinants of this behavior. Main findings of this research include: growth in annual China-RoK trade is negatively associated with frequency of US-RoK military exercises in a given year, growth in annual China-DPRK trade is unaffected by frequency of missile or nuclear provocations in a given year, and growth in annual US-China trade is unaffected by military exercises, missile provocations, and nuclear provocations. The most significant provocation factor that affects China&#39;s trade relationships is US-RoK military exercises, suggesting a chief concern of China about events on the Korean peninsula is the level US influence in the region.</p><h2><a name='header-n18' class='md-header-anchor '></a>Literature Review and Theory</h2><p>​	While there are theoretical perspectives and events that support both sides of the economic interdependence dichotomy, the evidence that it is a dominant foreign policy priority is increasingly better at explaining Chinese relationships relevant to the Korea peninsula. Despite China&#39;s current and past attempts to use economic leverage to achieve its foreign policy priorities, I believe that economic interdependence acts primarily as an incentive for mutualistic relationships.</p><p>​	In 2010, John Mearsheimer provided a theoretical perspective that predicted China&#39;s modernization would lead to the state seeking regional hegemony and using its position of power to achieve its foreign policy priorities.<sup><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup> Although Mearsheimer&#39;s analysis focused on the Chinese challenge to the power of the United States in the region, the perspective predicts that China would use its economic interdependence with its neighbors to achieve specific foreign policy goals, rather than allowing that economic interdependence to determine the state&#39;s priorities. There is support for this prediction in recent events regarding the peninsula, particularly in the case of the China-DPRK relationship. However, I believe these events are outliers, and China will increasingly prioritize its trade relationships higher in its foreign policy.</p><p>​	One of the most prominent examples of China using its economic leverage to achieve other foreign policy priorities occurred in 2017. In the first quarter of the year, China reported a substantial and mostly export driven increase in trade with North Korea of 37.4%, despite a ban on coal imports put in place in February.<sup><a href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup> In the following months, the North Korean regime initiated several missile tests, and by the end of the year China-DPRK trade saw a reduction of 10.5% compared to 2016.<sup><a href='#dfref-footnote-4' name='ref-footnote-4'>4</a></sup> Furthermore, the DPRK Budget Report for 2017 noted a slow down in economic growth in special economic zones, which are an important source of economic interdependence with China.<sup><a href='#dfref-footnote-5' name='ref-footnote-5'>5</a></sup> It seems clear from this example that China does not hesitate to use its trade relationships as tools to achieve foreign policy priorities; indeed, this is some of the strongest evidence to support such an idea. However, there is good reason to believe that the China-DPRK trade relationship is unlike many of its other relationships. Trade with the North Korean regime is only a small portion of China&#39;s economy, and in a situation with stronger economic interdependence the results may be quite different.</p><p>​	In 2017, China also attempted to use economic leverage against the Republic of Korea in response to the deployment of the THAAD missile defense system.<sup><a href='#dfref-footnote-6' name='ref-footnote-6'>6</a></sup> However in this instance, the effort had considerably less impact and the sanctions were removed in a short time frame. Before reconciliation of the dispute, China claimed that the RoK made three commitments.  Called the &#39;three nos&#39;, the commitments ruled out US missile defense system integration, a trilateral military alliance with the US and Japan, and no additional deployments of THAAD. According to the RoK, these commitments were not promises made to China, but instead long standing foreign policy. Importantly, the &#39;three nos&#39; did not include a walk back of the existing THAAD deployments in the RoK. In the case of the DPRK, there have been commitments to close nuclear test sites.<sup><a href='#dfref-footnote-7' name='ref-footnote-7'>7</a></sup> While China may attempt to use economic leverage to its advantage, the success of this policy is limited for trade relationships that are highly interdependent.</p><p>​	There are convincing theoretical perspectives that support the notion of economic interdependence being an incentive for cooperative relationships and a goal unto itself. For example, the democratic peace theory stresses that interdependence and strong trade relationships create opportunities for communication by fostering cross-border social and business ties.<sup><a href='#dfref-footnote-8' name='ref-footnote-8'>8</a></sup> In this perspective, well connected interests have too much to lose from instability and pressure their respective states to deescalate economic conflict. This process has echoes of intergroup contact theory, which has shown contact between different cultural groups to lead to lower levels of prejudice.<sup><a href='#dfref-footnote-9' name='ref-footnote-9'>9</a></sup> The presence of decreased prejudice among economic leaders could plausibly complement the strong incentives for peace, diminishing the influence of national identity on the process of dispute resolution. However, this only occurs when the economies in question are sufficiently well connected and integrated. Thus, China may selectively continue to use economic leverage only on states and actors it is only marginally connected with.</p><p>​	According to Avery Goldstein, the economic and institutional ties between China and North East Asian actors such as the US and RoK are so central to China&#39;s continued modernization that it is unlikely they will be sacrificed for other foreign policy priorities.<sup><a href='#dfref-footnote-10' name='ref-footnote-10'>10</a></sup> He points to the increasing willingness of China to fulfill a leadership position, through both public and discrete diplomatic missions and negotiations, as evidence of the strength of these ties. Furthermore, Goldstein notes that Chinese statements have emphasized the need to contain, rather than counter, tensions. This aligns with a 2017 Council on Foreign Relations report that claims one of China&#39;s top priorities for the Korean peninsula is stability.<sup><a href='#dfref-footnote-11' name='ref-footnote-11'>11</a></sup></p><p>​	If it is true that economic interdependence plays such a dominant role in China&#39;s geopolitical calculus, then options to pursue other foreign policy goals such as denuclearisation become limited. Last year, Nicholas Anderson published a paper describing an intriguing idea of a &#39;nuclear trilemma&#39; for the US on the Korean peninsula. In the paper, he asserts that the US cannot achieve denuclearisation without going to war or abandoning forward deployment in Korea.<sup><a href='#dfref-footnote-12' name='ref-footnote-12'>12</a></sup> While this trilemma may not exist, the tradeoffs outlined by Anderson are thought provoking. China likely faces similar tradeoffs in its foreign policy, and it is unclear when these tradeoffs will lead to economic incentives being deprioritized.</p><h2><a name='header-n33' class='md-header-anchor '></a>Research Design</h2><p>​	In determining the role of economic interdependence, I use a model that defines China&#39;s trade relationships with the DPRK, RoK, USA, and Japan as the dependent variable. In the model, the independent variables are the frequency of different types of provocation events. My analysis controls for China&#39;s trade with the rest of the world.</p><p>​	The annual growth in exports and imports to and from each trade partner is used to measure the progress and status of the trade relationships. From the UN Comtrade Database, yearly data for imports and exports in dollars between China and its trade partners is available.<sup><a href='#dfref-footnote-13' name='ref-footnote-13'>13</a></sup> From this data, I generated annual figures for trade growth, expressed as a percentage increase in total value of the flow in question relative to the previous year. There are three main measures of trade growth used in my models: combined export and import growth, export growth only, and import growth only.</p><p>​	Provocations by the DPRK, RoK, and the USA serve as the independent variable, representing geopolitical circumstances undesirable from the perspective of China. There are three major types of provocations relevant to this analysis: military exercises ( RoK and USA), missile provocations (DPRK), and nuclear provocations (DPRK). The provocation data, compiled by BeyondParallel, has a long time span and is very precise in its event times.<sup><a href='#dfref-footnote-14' name='ref-footnote-14'>14</a></sup> Although the exact dates of the events are known, the provocations are grouped by year to make comparison with the trade data simpler.</p><p>​	The scope of the regression analysis is from 1994 through 2016. This is a wide time frame that includes two significant economic crises (East Asian Financial Crisis and the Global Recession) and several shifts in the geopolitical posturing of the DPRK. The analysis does not extend prior to the fall of the Soviet Union, which left China as one of the most dominant economic powers in the region. China has not reported its trade totals for 2017, so the year is not included in the analysis.</p><h3><a name='header-n42' class='md-header-anchor '></a>Descriptive Analysis</h3><p>​	In evaluating the data, I will first frame the results with descriptive analysis of the individual datasets, then test the hypotheses and relate the datasets to each other. In the first two graphs, I show China&#39;s trade flows with all partners, then with the US and its North East Asian allies only. The legends of these figures use the ISO names for the trade partners. PRK corresponds to the DPRK, KOR to RoK, JPN to Japan, and WLD to the world.</p><p><img src='output/china_trade_total.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	This figure is important because it demonstrates the magnitude of Chinese exports and imports, which peak at $2.3 trillion and $1.8 trillion, respectively. Another notable detail is that while US, Japanese, and South Korean trade flows (particularly exports to the US) form a significant portion of China&#39;s global flows, Chinese trade with the DPRK is minute relative to flows with the rest of the world.</p><p><img src='output/china_trade_us_rok_jpn.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	A more detailed view of Chinese trade with US and its North East Asian allies, two important facts become apparent. The first is that trade with the RoK has grown faster than both US and Japanese trade. Second, growth in trade with Japan has largely stagnated. An important implication of this is that it decreases incentives for maintaining peaceful conditions and a healthy trade relationship. I would expect that from these trends that China would be more willing to forgo gains from trade with Japan than with the RoK or US.</p><p>​	Since the beginning of this analysis, growth in China-DPRK trade flows has not kept up with the global trend. However, bumps in imports and exports occurred between 2010 and 2011. This is around the time that the DPRK sunk an RoK ship, the Cheonan.</p><p><img src='output/china_trade_dprk.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	Another critical detail is that China-DPRK trade flows did not decrease substantially in the mid 2010s. Instead, they mostly followed the trend of China-World trade.</p><p>​	This is surprising because during these years, the DPRK initiated a substantial amount of missile provocations (see figure below). Despite these high levels of provocation, China did not put severe sanctions in place until 2017.</p><p><img src='output/provocation_years.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	This subset of beyondparallel&#39;s provocation events reveals several important features of provocation on the Korean peninsula. First, military exercises have been routine and consistent in recent years. Since 2005, there have been military exercises every year. Next, I would like to address nuclear provocations, which have been more intermittent in frequency but still fairly consistent. With the recent collapse of one of the DPRK&#39;s nuclear facilities, it is likely that nuclear provocations will be less frequent in the short term. Because there have not been significant increases in military exercises or nuclear provocations since 2005, there is some uncertainty how actors in the region may behave if this did occur. </p><p><img src='output/provocation_types_table.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	The final and most important detail I would like to highlight is the high degree of variation in number of missile provocations each year: the standard deviation for annual missile provocations is larger than the mean. The distribution is also skewed to the right, with a mean nearly twice the median. Between 2014 and 2017, missile provocations sharply rose; in that period missile provocations are several times more frequent than prior to 2014. This is a substantial shift in behavior, and I would like to point out again that China only instituted severe economic sanctions in 2017, which is considerably late compared to when the DPRK began accelerating its rate of missile provocations.</p><p>​	The final descriptive figure aims to map the frequency of mentions of Chinese foreign policy goals and interests in the state&#39;s UN Security Council speeches on the subject of the DPRK. The dataset consists of 16 speeches by Chinese officials between late 2014 and 2018. Eleven speeches occurred in 2017, three in 2016, and one each in 2015 and 2014. Prior to 2014, China had not spoken on the subject of the DPRK since 2009, and there have been no speeches on the subject in 2018 so far. This lack of data availability is challenging, but also telling. The UN Security Council meetings dedicated to the subject of the DPRK has rapidly increased as provocations have sustained high levels.</p><p><img src='output/china_unsc_interests.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	The keywords were chosen by examining the most common words used in proximity to the word &quot;interest&quot; and various variations and synonyms of the word, including &quot;goal&quot; and &quot;concern&quot;. Then, the number of mentions of each of these keywords was counted for each speech. While the four keywords may ostensibly seem similar, a nuanced view would note that they are potentially contradictory. For example, denuclearization on the Korean peninsula may be extremely difficult to achieve without sacrificing short term peace and stability. For this reason, the substantial decline in mentions of peace and security with a simultaneous climb in mentions of denuclearization is quite worrying. Nevertheless, these trends should be viewed with some important caveats in mind. The first, data availability, was mentioned above. If another round of UN Security Council meetings regarding the DPRK occurs in the future, there is reason to believe that China will have a different set of goals and interests. The other caveat is that this figure provides no information on the context of the keyword mentions. Lexicographical analysis would need to be used to determine subjective details about China&#39;s speech, such as strength or weakness of messaging.</p><h3><a name='header-n75' class='md-header-anchor '></a>Results and Discussion</h3><p>​	Of the five regressions conducted, four used summed exports and imports for each partner as the dependent variable, and one used only exports to the DPRK. One coefficient was significant at the 5% level, and two others at the 10% level. The table below presents the findings, omitting the following control variables for brevity: Chinese exports and imports with the world and provocation events of the type &#39;Other&#39; and &#39;OtherProvocation&#39;.</p><p><img src='output/modelsdoc.svg' alt='' referrerPolicy='no-referrer' /></p><p>​	In line with expectations, none of the coefficients in the US regression are significant. I believe this is because exports to the United States play a major role in China&#39;s economy, and they are unwilling to disrupt the trade relationship due to changes in events on the Korean peninsula.</p><p>​	There is weak evidence that US-RoK military exercises are associated with an increase in growth of China&#39;s exports to the DPRK. The coefficient tells us that for each additional military exercise conducted, the annual growth of Chinese exports to the DPRK is 10% higher. However, this result is not very strong, since its p-value is only 0.09. Although a causal mechanism, whereby China balances against hegemonic provocation by solidifying its relationships, is plausible, the results for this regression are far from certain.</p><p>​	In the case of Japan, the results are stronger with a p-value of 0.06, but the causal mechanism is less clear. Although Japan has a military alliance with the United States, the state is not involved in US-RoK military exercises on the Korean peninsula. Another factor that could be confounding results is the domestic economic growth of Japan in the years that have more military exercises.</p><p>​	The regression for growth in China&#39;s trade with the Republic of Korea provides the strongest results and the most convincing causal argument. In reaction to more frequent military exercises, China could adjust its economic policy to either punish RoK or simply distance itself from the trade relationship. According to the results, for each additional military exercise in a given year, total trade flows between China and the RoK are 9% lower. This effect has a p-value of 0.04.</p><p>​	Important limitations to this analysis include: the number of observations is limited, there is a lack of country-specific controls, and the analysis does not account for sticky economic policies. The primary limit to the number of observations is the specificity of the trade data reported by China to the United Nations. If quarterly or monthly data were made available, the analysis would have lower standard errors and would not be prone to the limitations of low N ordinary least squares regression. One potential country specific control that could prove useful in this analysis is GDP growth, as mentioned in the evaluation of the Japan model. In years with higher GDP growth, a country may be more capable of growing its trade relationship with China and others. In order to account for sticky economic policies, there are two choices: lagged values or moving averages for the provocation events. This would allow the model to account for events that do not necessarily occur in the same year but are still relatively recent.</p><h2><a name='header-n90' class='md-header-anchor '></a>Conclusion</h2><p>​	In summary, I do not refute my expectation that the US-China trade relationship is unaffected by provocation events on the Korean peninsula. The evidence relating to the Japan-China trade relationship is unclear, but points to support for my expectation that the relatively weaker economic interdependence is less robust to external influence. The evidence contradicts my expectation that the RoK-China trade relationship would not be affected by provocation events. Despite a high degree of economic interdependence between the two countries and strong growth trends, the evidence tells us that growth in trade between the two countries is sensitive to the frequency of military exercises conducted on the Korean peninsula. Finally, the evidence does not support my expectation that the China-DPRK trade relationship would be negatively associated with increased frequency of missile and nuclear provocation events.</p><p>​	Three broad implications stem from these findings. The first concerns the China-US trade relationship, which the evidence suggests is resistant to regional geopolitical tensions on the Korean peninsula. This finding lends credence to the democratic peace theory and perspectives that assert China-US relations will be predominantly peaceful and cooperative as China grows and modernizes. Unfortunately, the findings of this research also suggest that China may be willing to use economic leverage to coerce the Republic of Korea. If this is true, we may see more events like the 2017 THAAD dispute, which led to an estimated cost of $7.5 billion USD to the South Korean economy due to Chinese sanctions.<sup><a href='#dfref-footnote-6-1' name='ref-footnote-6-1'>6</a></sup> The final implication of these findings is that the China-DPRK trade relationship is stronger than one might predict from looking at levels of economic interdependence. This suggests that Chinese interests on the Korean peninsula are not purely economic. China may be supportive of the DPRK for ideological reasons, or to balance against the US and its allies in Northeast Asia.</p><h2><a name='header-n95' class='md-header-anchor '></a>Bibliography</h2><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> Office of the Secretary of Defense. &quot;Military and Security Developments Involving the People’s Republic of China, 2015&quot;. Page 22.<a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> Mearsheimer, John J. &quot;The Gathering Storm: China’s Challenge to US Power in Asia&quot;. The Chinese Journal of International Politics, Vol. 3, 2010, 381–396.<a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>3</span> Perlez, Jane and Yufan Huang. &quot;China Says Its Trade With North Korea Has Increased&quot;. New York Times. 2017-04-13.<a name='dfref-footnote-3' href='#ref-footnote-3' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>4</span> Tan, Huileng. &quot;China&#39;s trade with North Korea dropped sharply in 2017&quot;. CNBC. 2018-01-11.<a name='dfref-footnote-4' href='#ref-footnote-4' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>5</span> Frank, Ruediger. &quot;The North Korean Parliamentary Session and Budget Report for 2017&quot;. 38North. 2017-04-28.<a name='dfref-footnote-5' href='#ref-footnote-5' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>6</span> Glaser, Bonnie S. and Lisa Collins. &quot;China&#39;s Rapprochement With South Korea: Who Won the THAAD Dispute?&quot;. Foreign Affairs. 2017-11-07.<a name='dfref-footnote-6' href='#ref-footnote-6' title='back to document' class='reversefootnote' >↩</a><a name='dfref-footnote-6-1' href='#ref-footnote-6-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>7</span> The Associated Press. &quot;North Korea to close nuclear test site in May, Seoul says&quot;. 2018-04-28.<a name='dfref-footnote-7' href='#ref-footnote-7' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>8</span> Szayna, Thomas et. al., The Emergence of Peer Competitors: A Framework for Analysis, Appendix C “The Democratic Peace Idea.” (RAND Corporation, 2001).<a name='dfref-footnote-8' href='#ref-footnote-8' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>9</span> Pettigrew, Thomas F. and Linda R. Tropp. Journal of Personality and Social Psychology, Vol. 90, No. 5, 2006, 751–783.<a name='dfref-footnote-9' href='#ref-footnote-9' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>10</span> Goldstein,  Avery. “Power Transitions, Institutions, and China&#39;s Rise in East Asia: Theoretical Expectations and Evidence”. Journal of Strategic Studies, Vol. 30, No. 4, 2007, 639-682.<a name='dfref-footnote-10' href='#ref-footnote-10' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>11</span> Albert, Eleanor. &quot;The China–North Korea Relationship.&quot; Council on Foreign Relations, March 2017.<a name='dfref-footnote-11' href='#ref-footnote-11' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>12</span> Anderson, Nicholas D. &quot;America’s North Korean Nuclear Trilemma&quot;. Washington Quarterly, Vol. 40, No. 4, 2017, 153-164.<a name='dfref-footnote-12' href='#ref-footnote-12' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>13</span> <a href='https://comtrade.un.org' target='_blank' class='url'>https://comtrade.un.org</a>/<a name='dfref-footnote-13' href='#ref-footnote-13' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>14</span> <a href='https://beyondparallel.csis.org' target='_blank' class='url'>https://beyondparallel.csis.org</a>/<a name='dfref-footnote-14' href='#ref-footnote-14' title='back to document' class='reversefootnote' >↩</a></div></div></div>
+</body>
+</html>

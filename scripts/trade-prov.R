@@ -10,7 +10,7 @@ trade_prov <-
   mutate(Type = gsub("\\s+", "", Type)) %>%
   spread(Type, n)
 
-provocation_vars <- "MilitaryExercise + MissileProvocation + NuclearProvocation"
+provocation_vars <- "MilitaryExercise + MissileProvocation + NuclearProvocation + OtherProvocation + Other"
 trade_vars <- "JPN.Export + KOR.Export + USA.Export + PRK.Export + JPN.Import + KOR.Import + PRK.Import + USA.Import"
 
 robustify <- function (mod) {
