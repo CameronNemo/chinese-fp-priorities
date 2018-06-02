@@ -1,38 +1,30 @@
 \begin{table}[!ht]
 \caption{}
 \label{} 
-\begin{tabular}{ l D{.}{.}{2}D{.}{.}{2}D{.}{.}{2}D{.}{.}{2}D{.}{.}{2}D{.}{.}{2} }
+\begin{tabular}{ l D{.}{.}{2}D{.}{.}{2}D{.}{.}{2}D{.}{.}{2}D{.}{.}{2} }
 
 \hline 
-  & \multicolumn{ 1 }{ c }{ RoK } & \multicolumn{ 1 }{ c }{ Japan } & \multicolumn{ 1 }{ c }{ (Imports) } & \multicolumn{ 1 }{ c }{ DPRK } & \multicolumn{ 1 }{ c }{ (Exports) } & \multicolumn{ 1 }{ c }{ USA } \\ \hline
+  & \multicolumn{ 1 }{ c }{ RoK } & \multicolumn{ 1 }{ c }{ Japan } & \multicolumn{ 1 }{ c }{ DPRK } & \multicolumn{ 1 }{ c }{ (Exports) } & \multicolumn{ 1 }{ c }{ USA } \\ \hline
 
-%                  & RoK              & Japan            & (Imports)        & DPRK             & (Exports)        & USA             \\ 
-(Intercept)        & 0.09             & -0.00            & -0.02            & 0.07             & -0.10            & 0.08            \\ 
-                   & (0.52)           & (0.95)           & (0.60)           & (0.96)           & (0.54)           & (0.15)          \\ 
-WLD.Export         & 1.93 ^{**}       & 0.55             & 0.07             & -1.34            & -0.20            & 1.16 ^{**}      \\ 
-                   & (0.00)           & (0.19)           & (0.70)           & (0.75)           & (0.80)           & (0.00)          \\ 
-WLD.Import         & 0.39             & 1.24 ^{**}       & 0.90 ^{***}      & 1.37             & 1.00             & 0.21            \\ 
-                   & (0.41)           & (0.00)           & (0.00)           & (0.64)           & (0.17)           & (0.52)          \\ 
-MilitaryExercise   & -0.09 ^*         & -0.06 ^\dagger  & -0.03 ^\dagger  & 0.30             & 0.10 ^\dagger   & -0.01           \\ 
-                   & (0.04)           & (0.06)           & (0.09)           & (0.43)           & (0.09)           & (0.83)          \\ 
-MissileProvocation & 0.01             & 0.01             & 0.01 ^\dagger   & -0.08            & -0.01            & -0.01           \\ 
-                   & (0.19)           & (0.17)           & (0.08)           & (0.27)           & (0.22)           & (0.45)          \\ 
-NuclearProvocation & -0.02            & -0.03            & -0.01            & -0.16            & -0.08            & 0.02            \\ 
-                   & (0.77)           & (0.44)           & (0.75)           & (0.51)           & (0.20)           & (0.66)          \\ 
-OtherProvocation   & 0.01             & 0.00             & 0.00             & -0.00            & -0.01            & 0.01            \\ 
-                   & (0.76)           & (0.55)           & (0.79)           & (1.00)           & (0.78)           & (0.64)          \\ 
-Other              & -0.02            & -0.01            & 0.00             & 0.19             & 0.03             & 0.00            \\ 
-                   & (0.19)           & (0.40)           & (0.95)           & (0.71)           & (0.57)           & (0.87)          
+%                  & RoK              & Japan            & DPRK             & (Exports)        & USA             \\ 
+(Intercept)        & 0.09             & -0.00            & 0.07             & -0.10            & 0.08            \\ 
+                   & (0.52)           & (0.95)           & (0.96)           & (0.54)           & (0.15)          \\ 
+MilitaryExercise   & -0.09 ^*         & -0.06 ^\dagger  & 0.30             & 0.10 ^\dagger   & -0.01           \\ 
+                   & (0.04)           & (0.06)           & (0.43)           & (0.09)           & (0.83)          \\ 
+MissileProvocation & 0.01             & 0.01             & -0.08            & -0.01            & -0.01           \\ 
+                   & (0.19)           & (0.17)           & (0.27)           & (0.22)           & (0.45)          \\ 
+NuclearProvocation & -0.02            & -0.03            & -0.16            & -0.08            & 0.02            \\ 
+                   & (0.77)           & (0.44)           & (0.51)           & (0.20)           & (0.66)          
 \\
 
-$N$                & 23               & 23               & 23               & 23               & 23               & 23              \\ 
-$R^2$              & 0.86             & 0.94             & 0.93             & 0.22             & 0.56             & 0.92            \\ 
-adj. $R^2$         & 0.79             & 0.91             & 0.90             & -0.14            & 0.35             & 0.89            \\ 
-Resid. sd          & 0.17             & 0.08             & 0.05             & 0.98             & 0.18             & 0.07            
+$N$                & 23               & 23               & 23               & 23               & 23              \\ 
+$R^2$              & 0.86             & 0.94             & 0.22             & 0.56             & 0.92            \\ 
+adj. $R^2$         & 0.79             & 0.91             & -0.14            & 0.35             & 0.89            \\ 
+Resid. sd          & 0.17             & 0.08             & 0.98             & 0.18             & 0.07            
 \\ \hline
 
-\multicolumn{7}{l}{\footnotesize{Robust $p$ values in parentheses}}\\
-\multicolumn{7}{l}{\footnotesize{$^\dagger$ significant at $p<.10$; $^* p<.05$; $^{**} p<.01$; $^{***} p<.001$}}
+\multicolumn{6}{l}{\footnotesize{Robust $p$ values in parentheses}}\\
+\multicolumn{6}{l}{\footnotesize{$^\dagger$ significant at $p<.10$; $^* p<.05$; $^{**} p<.01$; $^{***} p<.001$}}
 
 \end{tabular}
 

@@ -19,7 +19,7 @@ ggsave("output/provocation_years.svg", width=4.84, height=3.66, device="svg")
 
 #ggsave("output/provocation_types.svg", device="svg")
 
-svg("output/provocation_types_table.svg", height=2.22, width=3.9)
+svg("output/provocation_types_table.svg", height=1.8, width=3.9)
 prov %>%
   prov_per_year() %>%
   group_by(Type) %>%

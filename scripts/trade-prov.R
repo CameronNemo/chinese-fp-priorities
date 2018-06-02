@@ -10,7 +10,7 @@ trade_prov <-
   mutate(Type = gsub("\\s+", "", Type)) %>%
   spread(Type, n)
 
-provocation_vars <- "MilitaryExercise + MissileProvocation + NuclearProvocation + OtherProvocation + Other"
+provocation_vars <- "MilitaryExercise + MissileProvocation + NuclearProvocation"
 trade_vars <- "JPN.Export + KOR.Export + USA.Export + PRK.Export + JPN.Import + KOR.Import + PRK.Import + USA.Import"
 
 robustify <- function (mod) {
@@ -37,18 +37,17 @@ mod_usa$se <- vcovHC(mod_usa)
 
 mod_tab <- apsrtable(mod_kor,
                      mod_jpn,
-                     mod_jpn.im,
                      mod_prk,
                      mod_prk.ex,
                      mod_usa,
                      se=c("pval"),
                      model.names=c("RoK",
                                    "Japan",
-                                   "(Imports)",
                                    "DPRK",
                                    "(Exports)",
                                    "USA"),
-                     stars="default")
+                     stars="default",
+                     omitcoef=c("WLD.Export", "WLD.Import", "OtherProvocation", "Other"))
 write(mod_tab, "output/models.tex")
 
 # insignificant
