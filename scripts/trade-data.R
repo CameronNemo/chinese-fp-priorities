@@ -1,4 +1,6 @@
 source("scripts/common.R")
+# lookup()
+library(qdapTools)
 
 comtrade_files <- c("data/comtrade0307.csv",
                     "data/comtrade0812.csv",
@@ -13,6 +15,17 @@ clean_comtrade <- function(file_name) {
 }
 
 long <- do.call("rbind", lapply(comtrade_files, clean_comtrade))
+
+# create a hash table for the Partner codes
+# for use with lookup()
+partner_table <-
+  long %>%
+  select(Partner.ISO, Partner) %>%
+  unique() %>%
+  mutate(Partner = as.character(Partner))
+# These guys are long, so shorten them
+partner_table$Partner[partner_table$Partner.ISO == "PRK"] <- "DPRK"
+partner_table$Partner[partner_table$Partner.ISO == "KOR"] <- "RoK"
 
 # filter for China's reported trade
 long %<>%
@@ -35,21 +48,22 @@ long_adj_index <-
   separate(Partner.Flow, c('Partner.ISO', 'Trade.Flow'), sep="\\.") %>%
   group_by(Partner.ISO, Trade.Flow) %>%
   mutate(Trade.Index = ((Trade.Value / Trade.Value[Year == min(Year)]) - 1) * 100) %>%
-  ungroup()
+  ungroup() %>%
+  mutate(Partner = lookup(Partner.ISO, partner_table))
 
 # add Trade.Growth variable
 long_growth <-
   long_adj_index %>%
-  mutate(Partner.Flow = paste(Partner.ISO, Trade.Flow, sep=".")) %>%
-  select(Year, Partner.Flow, Trade.Value) %>%
-  group_by(Partner.Flow) %>%
+  select(Year, Partner.ISO, Trade.Flow, Trade.Value) %>%
+  group_by(Partner.ISO, Trade.Flow) %>%
   mutate(Trade.ValueLag = lag(Trade.Value, 1),
          Trade.Growth = ifelse(is.na(Trade.ValueLag), NA,
                                (Trade.Value - Trade.ValueLag) / Trade.ValueLag)) %>%
   select(-Trade.ValueLag, -Trade.Value) %>%
   ungroup() %>%
   # filter NA values
-  filter(Year > min(Year))
+  filter(Year > min(Year)) %>%
+  mutate(Partner = lookup(Partner.ISO, partner_table))
 
 # widen to make regressions easier
 wide_adj_index <-
