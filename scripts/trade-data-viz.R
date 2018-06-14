@@ -91,4 +91,4 @@ wide_growth %>%
   ylab("Density") +
   ggtitle("Fig. 6: Distribution of Trade Growth with RoK")
 
-ggsave("output/china_trade_rok_dist.svg", height=4, width=5, device="svg")
+ggsave("output/china_trade_rok_dist.svg", height=3.4, width=5, device="svg")
