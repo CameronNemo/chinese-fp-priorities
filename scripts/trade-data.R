@@ -74,6 +74,8 @@ wide_adj_index <-
 
 wide_growth  <-
   long_growth %>%
+  mutate(Partner.Flow = paste(Partner.ISO, Trade.Flow, sep=".")) %>%
+  select(Year, Partner.Flow, Trade.Growth) %>%
   spread(Partner.Flow, Trade.Growth)
 
 # TODO: 2017supplement, check portions

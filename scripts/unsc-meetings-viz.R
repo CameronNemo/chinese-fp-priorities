@@ -5,7 +5,7 @@ interests_intexts %>%
   ggplot(aes(x=date, y=n/word_count, color=keyword)) +
   geom_jitter(alpha=0.67, size=4, width=0, height=0.0008) +
   geom_smooth(method=glm, se=F) +
-  ggtitle("Rising Importance of Denuclearisation") +
+  ggtitle("Fig. 5: Rising Importance of Denuclearisation") +
   ylab("Relative Frequency") + xlab("Year")
 
 ggsave("output/china_unsc_interests.svg", height=4.04, width=5.35, device="svg")

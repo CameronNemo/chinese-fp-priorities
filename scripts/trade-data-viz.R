@@ -15,27 +15,27 @@ long_adj_index %>%
   facet_wrap(~Trade.Flow) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   ylab("Trade Value (trillions of USD)") +
-  ggtitle("Exports to US Significant on a Global Scale")
+  ggtitle("Fig. 1: Exports to US Significant on a Global Scale")
 
 ggsave("output/china_trade_total.svg", width=5.25, height=3.33, device="svg")
 
 long_adj_index %>%
   filter(Partner.ISO != "WLD", Partner.ISO != "PRK") %>%
   ggplot(aes(y=Trade.Index, x=Year, color=Partner)) +
-  geom_point(size=2.2222) +
+  geom_line(size=2.2222) +
   facet_wrap(~Trade.Flow) +
   ylab("Trade Value (indexed to 1993)") +
-  ggtitle("Trade with Japan falls behind US and RoK")
+  ggtitle("Fig. 2: Trade with Japan falls behind US and RoK")
 
 ggsave("output/china_trade_us_rok_jpn.svg", width=5.25, height=3.33, device="svg")
 
 long_adj_index %>%
   filter(Partner.ISO == "PRK" | Partner.ISO == "WLD") %>%
   ggplot(aes(y=Trade.Index, x=Year, color=Partner)) +
-  geom_point(size=2.2222) +
+  geom_line(size=2.2222) +
   facet_wrap(~Trade.Flow) +
   ylab("Trade Value (indexed to 1993)") +
-  ggtitle("China-DPRK Trade Growing Slowly")
+  ggtitle("Fig 3: China-DPRK Trade Growing Slowly")
 
 ggsave("output/china_trade_dprk.svg", width=5.25, height=3.33, device="svg")
 
@@ -87,6 +87,8 @@ wide_growth %>%
                 args=list(mean = mean(wide_growth$KOR.Export+wide_growth$KOR.Import),
                           sd = sd(wide_growth$KOR.Export+wide_growth$KOR.Import))) +
   guides(colour=guide_legend(title="Statistic")) +
-  xlab("Annual Percent Growth") +
+  xlab("Annual Percent Growth in Imports and Exports") +
   ylab("Density") +
-  ggtitle("Distribution of Total Chinese Trade Growth with South Korea")
+  ggtitle("Fig. 6: Distribution of Trade Growth with RoK")
+
+ggsave("output/china_trade_rok_dist.svg", height=4, width=5, device="svg")

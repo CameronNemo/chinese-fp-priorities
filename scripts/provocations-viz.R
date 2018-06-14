@@ -4,7 +4,7 @@ prov %>%
   ggplot(aes(x=format(Date.Start, "%Y"), fill=Type)) +
   geom_bar() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Growth in Missile Provocations") +
+  ggtitle("Fig. 4: Growth in Missile Provocations") +
   xlab("Year") + ylab("Number of Provocations")
 
 ggsave("output/provocation_years.svg", width=4.84, height=3.66, device="svg")
